@@ -45,7 +45,7 @@ class Labyrinth {
     }!!
 
     // Initial step
-    val l = 2
+    val l = 0
 
     println("1. DATA")
     println("1.1. Labyrinth")
@@ -59,14 +59,11 @@ class Labyrinth {
     println("3. RESULTS")
     if (exists) {
       println("3.1. Path found.")
+      println("3.2. Path table")
+      printArray2d(labyrinth)
     } else {
       println("3.1. Path not found.")
     }
-
-//    val n: Int = readNum("Enter n:", "'%s' must be in bounds of [1..7]") { n: Int ->
-//      n in 1..7
-//    }!!
-//    println("Read $n!")
   }
 
   private fun execute(l: Int, x: Int, y: Int) {
@@ -78,21 +75,31 @@ class Labyrinth {
     var k = 0
     var step = l
     do {
-      ++k
       val u = x + cx[k]
       val v = y + cy[k]
-      if (labyrinth[u][v] == 0) {
+      ++k
+      print(String.format("%2d) %sR${k}. U=${u+1}, V=${v+1}, L=$step.", ++count, "-".repeated(step)))
+      if (labyrinth[v][u] == 0) {
         ++step
-        labyrinth[u][v] = step
+        labyrinth[v][u] = step
+        println(String.format(" Free. L = LAB[${u+1}, ${v+1}] = $step"))
         execute(step, u, v)
         if (!exists) {
-          labyrinth[u][v] = -1
+          println(String.format("    %sBacktrack from X=${u+1}, Y=${v+1}. L = $step-1 = ${step - 1}. LAB[${u+1}, ${v+1}] = -1", "-".repeated(step)))
+          labyrinth[v][u] = -1
           --step
         }
+      } else if (labyrinth[v][u] == 1) {
+        println(String.format(" Wall."))
+      } else {
+        println(String.format(" Already visited."))
       }
-    } while (!exists && k < 4 - 1)
+    } while (!exists && k < 4)
   }
 
+  private fun String.repeated(n: Int): String {
+    return repeat(Math.max(n, 0))
+  }
 
   private fun parseInput(): Array<Array<Int>> {
     // Open input file
@@ -121,6 +128,7 @@ class Labyrinth {
       }
 
       // Parse cols into ints
+      @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
       val colInts: Array<Int> = colStrings.map {
         val int = it.toIntOrNull()
         if (int == null || int !in 0..1 ) {
