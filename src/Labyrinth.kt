@@ -16,15 +16,83 @@ class Labyrinth {
     }
   }
 
+  /**
+   * Count of operations performed while searching.
+   */
+  private var count = 0
+  private var exists = false
+  private val labyrinth: Array<Array<Int>>
+
+  /**
+   * Production step on the x axis (left, down, right, up).
+   */
+  private val cx = intArrayOf(-1, 0, 1, 0)
+  /**
+   * Production step on the y axis (left, down, right, up).
+   */
+  private val cy = intArrayOf(0, -1, 0, 1)
+
   init {
-    val array = parseInput()
-    printArray2d(array)
+    // Input
+    labyrinth = parseInput()
+
+    val x: Int = readNum("Enter X:", "X must be within the labyrinth ([1..${labyrinth[0].size}])!") { x: Int ->
+      x in 1..labyrinth[0].size
+    }!!
+
+    val y: Int = readNum("Enter Y:", "Y must be within the labyrinth ([1..${labyrinth.size}])!") { y: Int ->
+      y in 1..labyrinth[0].size
+    }!!
+
+    // Initial step
+    val l = 2
+
+    println("1. DATA")
+    println("1.1. Labyrinth")
+    printArray2d(labyrinth)
+    println("1.2. Initial position X=$x, Y=$y, L=$l")
+
+    println("2. EXECUTION")
+    // Internally we used indexes that start with 0, while externally (input/output) we start with 1.
+    execute(l, x-1, y-1)
+
+    println("3. RESULTS")
+    if (exists) {
+      println("3.1. Path found.")
+    } else {
+      println("3.1. Path not found.")
+    }
 
 //    val n: Int = readNum("Enter n:", "'%s' must be in bounds of [1..7]") { n: Int ->
 //      n in 1..7
 //    }!!
 //    println("Read $n!")
   }
+
+  private fun execute(l: Int, x: Int, y: Int) {
+    if (x == 0 || y == 0 || x == labyrinth[0].size-1 || y == labyrinth.size-1) {
+      exists = true
+      return
+    }
+
+    var k = 0
+    var step = l
+    do {
+      ++k
+      val u = x + cx[k]
+      val v = y + cy[k]
+      if (labyrinth[u][v] == 0) {
+        ++step
+        labyrinth[u][v] = step
+        execute(step, u, v)
+        if (!exists) {
+          labyrinth[u][v] = -1
+          --step
+        }
+      }
+    } while (!exists && k < 4 - 1)
+  }
+
 
   private fun parseInput(): Array<Array<Int>> {
     // Open input file
