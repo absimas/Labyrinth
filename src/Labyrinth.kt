@@ -50,7 +50,7 @@ class Labyrinth {
     println("1. DATA")
     println("1.1. Labyrinth")
     labyrinth[y-1][x-1] = l
-    printArray2dReal(labyrinth)
+    printArray2d(labyrinth)
     println("1.2. Initial position X=$x, Y=$y, L=$l")
 
     println("2. EXECUTION")
@@ -61,9 +61,7 @@ class Labyrinth {
     if (exists) {
       println("3.1. Path found.")
       println("3.2. Path table")
-//      printArray2d(labyrinth)
-//      println("Real")
-      printArray2dReal(labyrinth)
+      printArray2d(labyrinth)
     } else {
       println("3.1. Path not found.")
     }
@@ -152,30 +150,9 @@ class Labyrinth {
     if (array.isEmpty()) return
 
     println("Y, V ^")
-    for (i in array.size-1 downTo 0) {
+    for (i in 0 until array.size) {
       print(String.format("  %2d | ", i+1))
-      for (j in 0 until array.size) {
-        print(String.format("%2d ", array[i][j]))
-      }
-      println()
-    }
-    print("     ")
-    print("-".repeat(3 * array[0].size + 1))
-    println("> X, U")
-    print("       ")
-    for (i in 0 until array[0].size) {
-      print(String.format("%2d ", i+1))
-    }
-    println()
-  }
-
-  private fun printArray2dReal(array: Array<Array<Int>>) {
-    if (array.isEmpty()) return
-
-    println("Y, V ^")
-    for (i in 0..array.size - 1) {
-      print(String.format("  %2d | ", i+1))
-      for (j in 0 until array.size) {
+      for (j in 0 until array[i].size) {
         print(String.format("%2d ", array[i][j]))
       }
       println()
