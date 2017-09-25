@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="172b696d-a5bf-453a-ad3a-728ae031d8ca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth.class" afterPath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/input2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$Companion.class" afterPath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$Companion.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$parseInput$array$1.class" afterPath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$parseInput$array$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$readNum$retryTask$1.class" afterPath="$PROJECT_DIR$/out/production/Labyrinth/Labyrinth$readNum$retryTask$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input" afterPath="$PROJECT_DIR$/input" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Labyrinth.kt" afterPath="$PROJECT_DIR$/src/Labyrinth.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -22,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/src/Labyrinth.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="334">
-              <caret line="154" column="40" lean-forward="true" selection-start-line="154" selection-start-column="40" selection-end-line="154" selection-end-column="40" />
+              <caret line="154" column="40" lean-forward="false" selection-start-line="154" selection-start-column="40" selection-end-line="154" selection-end-column="40" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -32,6 +33,16 @@
       </file>
       <file leaf-file-name="input" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/input">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/input2">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
@@ -81,7 +92,9 @@
     <option name="width" value="1914" />
     <option name="height" value="1171" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -134,6 +147,9 @@
   <component name="RecentsManager">
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -290,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506322527404</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Print all rows and columns. Clean up method names.">
+      <created>1506322860931</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1506322860931</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -305,7 +328,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60371107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60371107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -356,7 +379,8 @@
     <MESSAGE value="Log execution steps and resulting path." />
     <MESSAGE value="Add missing L addition to input labyrinth.&#10;Read input as consecutive array rows - don't reverse." />
     <MESSAGE value="Instead of reversing labyrinth cells, reverse vertical production steps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Instead of reversing labyrinth cells, reverse vertical production steps." />
+    <MESSAGE value="Print all rows and columns. Clean up method names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Print all rows and columns. Clean up method names." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,17 +510,25 @@
     <entry file="file://$PROJECT_DIR$/src/Labyrinth.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
-          <caret line="154" column="40" lean-forward="true" selection-start-line="154" selection-start-column="40" selection-end-line="154" selection-end-column="40" />
+          <caret line="154" column="40" lean-forward="false" selection-start-line="154" selection-start-column="40" selection-end-line="154" selection-end-column="40" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input">
+    <entry file="file://$PROJECT_DIR$/input2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
