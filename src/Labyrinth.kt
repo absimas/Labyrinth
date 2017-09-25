@@ -22,6 +22,7 @@ class Labyrinth {
   private var count = 0
   private var exists = false
   private val labyrinth: Array<Array<Int>>
+  private val rules = mutableListOf<String>()
 
   /**
    * Production step on the x axis (left, down, right, up).
@@ -62,6 +63,8 @@ class Labyrinth {
       println("3.1. Path found.")
       println("3.2. Path table")
       printArray2d(labyrinth)
+      println("3.3. Path rules")
+      println(rules.toString().removeSurrounding("[","]"))
     } else {
       println("3.1. Path not found.")
     }
@@ -80,6 +83,7 @@ class Labyrinth {
       val u = x + cx[k]
       val v = y + cy[k]
       ++k
+      rules.add("R$k")
       print(String.format("%2d) %sR${k}. U=${u+1}, V=${v+1}, L=$step.", ++count, "-".repeated(step)))
       if (labyrinth[v][u] == 0) {
         ++step
@@ -87,13 +91,16 @@ class Labyrinth {
         println(String.format(" Free. L = LAB[${u+1}, ${v+1}] = $step"))
         execute(step, u, v)
         if (!exists) {
+          rules.removeAt(rules.size-1)
           println(String.format("    %sBacktrack from X=${u+1}, Y=${v+1}. L = $step-1 = ${step - 1}. LAB[${u+1}, ${v+1}] = -1", "-".repeated(step)))
           labyrinth[v][u] = -1
           --step
         }
       } else if (labyrinth[v][u] == 1) {
+        rules.removeAt(rules.size-1)
         println(String.format(" Wall."))
       } else {
+        rules.removeAt(rules.size-1)
         println(String.format(" Thread."))
       }
     } while (!exists && k < 4)
