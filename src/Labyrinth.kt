@@ -30,7 +30,7 @@ class Labyrinth {
   /**
    * Production step on the y axis (left, down, right, up).
    */
-  private val cy = intArrayOf(0, -1, 0, 1)
+  private val cy = intArrayOf(0, 1, 0, -1)
 
   init {
     // Input
@@ -96,7 +96,7 @@ class Labyrinth {
       } else if (labyrinth[v][u] == 1) {
         println(String.format(" Wall."))
       } else {
-        println(String.format(" Already visited."))
+        println(String.format(" Thread."))
       }
     } while (!exists && k < 4)
   }
