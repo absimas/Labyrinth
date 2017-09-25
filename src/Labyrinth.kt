@@ -88,7 +88,7 @@ class Labyrinth {
       val v = y + cy[k]
       ++k
       rules.add("R$k")
-      print(String.format("%2d) %sR${k}. U=${u+1}, V=${v+1}, L=$step.", ++count, "-".repeated(step)))
+      print(String.format("%3d) %sR${k}. U=${u+1}, V=${v+1}, L=$step.", ++count, "-".repeated(step)))
       if (labyrinth[v][u] == 0) {
         ++step
         vertices.add("[X=${u+1},Y=${labyrinth.size-v}]")
@@ -164,18 +164,18 @@ class Labyrinth {
 
     println("Y, V ^")
     for (i in 0 until array.size) {
-      print(String.format("  %2d | ", array.size - i))
+      print(String.format("  %3d | ", array.size - i))
       for (j in 0 until array[i].size) {
-        print(String.format("%2d ", array[i][j]))
+        print(String.format("%3d ", array[i][j]))
       }
       println()
     }
-    print("     ")
-    print("-".repeat(3 * array[0].size + 1))
+    print("      ")
+    print("-".repeat(4 * array[0].size + 1))
     println("> X, U")
-    print("       ")
+    print("        ")
     for (i in 0 until array[0].size) {
-      print(String.format("%2d ", i+1))
+      print(String.format("%3d ", i+1))
     }
     println()
   }
