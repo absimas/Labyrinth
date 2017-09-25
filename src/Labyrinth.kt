@@ -45,11 +45,12 @@ class Labyrinth {
     }!!
 
     // Initial step
-    val l = 0
+    val l = 2
 
     println("1. DATA")
     println("1.1. Labyrinth")
-    printArray2d(labyrinth)
+    labyrinth[y-1][x-1] = l
+    printArray2dReal(labyrinth)
     println("1.2. Initial position X=$x, Y=$y, L=$l")
 
     println("2. EXECUTION")
@@ -60,7 +61,9 @@ class Labyrinth {
     if (exists) {
       println("3.1. Path found.")
       println("3.2. Path table")
-      printArray2d(labyrinth)
+//      printArray2d(labyrinth)
+//      println("Real")
+      printArray2dReal(labyrinth)
     } else {
       println("3.1. Path not found.")
     }
@@ -68,6 +71,7 @@ class Labyrinth {
 
   private fun execute(l: Int, x: Int, y: Int) {
     if (x == 0 || y == 0 || x == labyrinth[0].size-1 || y == labyrinth.size-1) {
+      println("Terminal.")
       exists = true
       return
     }
@@ -131,14 +135,14 @@ class Labyrinth {
       @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
       val colInts: Array<Int> = colStrings.map {
         val int = it.toIntOrNull()
-        if (int == null || int !in 0..1 ) {
+        if (int == null) {
           throw IllegalStateException("Unexpected cell character found: '$it'! Must be either 0 or 1.")
         }
         int!!
       }.toTypedArray()
 
       // Input rows are numbered in a descending fashion so write to the last one first
-      array[rowCount - rowIndex - 1] = colInts
+      array[rowIndex] = colInts
     }
 
     return array
@@ -149,6 +153,27 @@ class Labyrinth {
 
     println("Y, V ^")
     for (i in array.size-1 downTo 0) {
+      print(String.format("  %2d | ", i+1))
+      for (j in 0 until array.size) {
+        print(String.format("%2d ", array[i][j]))
+      }
+      println()
+    }
+    print("     ")
+    print("-".repeat(3 * array[0].size + 1))
+    println("> X, U")
+    print("       ")
+    for (i in 0 until array[0].size) {
+      print(String.format("%2d ", i+1))
+    }
+    println()
+  }
+
+  private fun printArray2dReal(array: Array<Array<Int>>) {
+    if (array.isEmpty()) return
+
+    println("Y, V ^")
+    for (i in 0..array.size - 1) {
       print(String.format("  %2d | ", i+1))
       for (j in 0 until array.size) {
         print(String.format("%2d ", array[i][j]))
