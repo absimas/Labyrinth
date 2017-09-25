@@ -164,7 +164,7 @@ class Labyrinth {
 
     println("Y, V ^")
     for (i in 0 until array.size) {
-      print(String.format("  %2d | ", i+1))
+      print(String.format("  %2d | ", array.size - i))
       for (j in 0 until array[i].size) {
         print(String.format("%2d ", array[i][j]))
       }
