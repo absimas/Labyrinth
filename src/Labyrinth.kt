@@ -23,6 +23,7 @@ class Labyrinth {
   private var exists = false
   private val labyrinth: Array<Array<Int>>
   private val rules = mutableListOf<String>()
+  private val vertices = mutableListOf<String>()
 
   /**
    * Production step on the x axis (left, down, right, up).
@@ -51,6 +52,7 @@ class Labyrinth {
     println("1. DATA")
     println("1.1. Labyrinth")
     labyrinth[y-1][x-1] = l
+    vertices.add("[X=$x,Y=$y]")
     printArray2d(labyrinth)
     println("1.2. Initial position X=$x, Y=$y, L=$l")
 
@@ -65,6 +67,8 @@ class Labyrinth {
       printArray2d(labyrinth)
       println("3.3. Path rules")
       println(rules.toString().removeSurrounding("[","]"))
+      println("3.4. Path vertices")
+      println(vertices.toString().removeSurrounding("[","]"))
     } else {
       println("3.1. Path not found.")
     }
@@ -87,11 +91,13 @@ class Labyrinth {
       print(String.format("%2d) %sR${k}. U=${u+1}, V=${v+1}, L=$step.", ++count, "-".repeated(step)))
       if (labyrinth[v][u] == 0) {
         ++step
+        vertices.add("[X=${u+1},Y=${labyrinth.size-v}]")
         labyrinth[v][u] = step
         println(String.format(" Free. L = LAB[${u+1}, ${v+1}] = $step"))
         execute(step, u, v)
         if (!exists) {
           rules.removeAt(rules.size-1)
+          vertices.removeAt(vertices.size-1)
           println(String.format("    %sBacktrack from X=${u+1}, Y=${v+1}. L = $step-1 = ${step - 1}. LAB[${u+1}, ${v+1}] = -1", "-".repeated(step)))
           labyrinth[v][u] = -1
           --step
