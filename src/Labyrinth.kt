@@ -32,7 +32,7 @@ class Labyrinth {
   /**
    * Production step on the y axis (left, down, right, up).
    */
-  private val cy = intArrayOf(0, 1, 0, -1)
+  private val cy = intArrayOf(0, -1, 0, 1)
 
   init {
     // Input
@@ -153,7 +153,7 @@ class Labyrinth {
       }.toTypedArray()
 
       // Input rows are numbered in a descending fashion so write to the last one first
-      array[rowIndex] = colInts
+      array[rowCount - rowIndex - 1] = colInts
     }
 
     return array
@@ -163,8 +163,8 @@ class Labyrinth {
     if (array.isEmpty()) return
 
     println("Y, V ^")
-    for (i in 0 until array.size) {
-      print(String.format("  %3d | ", array.size - i))
+    for (i in array.size-1 downTo 0) {
+      print(String.format("  %3d | ", i))
       for (j in 0 until array[i].size) {
         print(String.format("%3d ", array[i][j]))
       }
